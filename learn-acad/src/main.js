@@ -356,6 +356,14 @@ class LearnACAD {
     })
     if (currentModule) contentViewer.appendChild(currentModule)
 
+    // Mark heading-focused modules
+    contentViewer.querySelectorAll('.content-module').forEach(module => {
+      const children = Array.from(module.children)
+      if (children.length === 1 && children[0].tagName === 'H2') {
+        module.classList.add('heading-card')
+      }
+    })
+
     // 3. Post-Process Special Blocks
     contentViewer.querySelectorAll('.content-module').forEach(module => {
       module.querySelectorAll('p').forEach(p => {
