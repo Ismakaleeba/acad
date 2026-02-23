@@ -477,20 +477,26 @@ body {
 }
 
 .content-module.heading-card {
-    background: var(--bg-sidebar);
-    color: var(--text-white);
-    padding: 2rem 3.5rem;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    background: var(--bg-sidebar) !important;
+    color: var(--text-white) !important;
+    padding: 1.5rem 3.5rem;
+    margin: 4rem 0 2rem 0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 8px;
 }
 
 .content-module.heading-card h2 {
-    color: var(--text-white);
-    margin-bottom: 0;
+    color: var(--text-white) !important;
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
 }
 
 .content-module.heading-card h2::after {
-    background: var(--accent-gold);
-    bottom: -10px;
+    display: none;
+    /* Remove the gold underline for a cleaner look in the dark card */
 }
 
 .intro-line.drop-cap::first-letter {

@@ -335,16 +335,22 @@ class LearnACAD {
       if (child.tagName === 'H2') {
         if (currentModule) {
           contentViewer.appendChild(currentModule)
-          // Inject Ornamental Divider between modules
           const divider = document.createElement('div')
           divider.className = 'strategic-divider'
           divider.innerHTML = '<span>✧</span>'
           contentViewer.appendChild(divider)
         }
+
+        // Create an isolated heading card for the H2
+        const h2Module = document.createElement('div')
+        h2Module.className = 'content-module heading-card'
+        child.id = `chap-${chapter.id}-${child.textContent.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`
+        h2Module.appendChild(child)
+        contentViewer.appendChild(h2Module)
+
+        // Start a new module for following content
         currentModule = document.createElement('div')
         currentModule.className = 'content-module'
-        child.id = `chap-${chapter.id}-${child.textContent.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`
-        currentModule.appendChild(child)
       } else if (currentModule) {
         currentModule.appendChild(child)
       } else {
@@ -354,7 +360,7 @@ class LearnACAD {
         contentViewer.appendChild(ghostModule)
       }
     })
-    if (currentModule) contentViewer.appendChild(currentModule)
+    if (currentModule && currentModule.children.length > 0) contentViewer.appendChild(currentModule)
 
     // Mark heading-focused modules
     contentViewer.querySelectorAll('.content-module').forEach(module => {
