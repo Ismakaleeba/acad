@@ -712,34 +712,43 @@ body {
     background-repeat: no-repeat;
 }
 
-/* --- Section Navigator (Sticky) --- */
+/* --- Section Navigator --- */
 .chapter-nav {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    position: relative;
+    background: var(--bg-sidebar);
+    color: var(--text-white);
     z-index: 50;
     display: flex;
-    gap: 2rem;
-    padding: 1rem 0;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    margin: 2rem 0 3rem 0;
+    border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-nav a {
-    color: var(--text-charcoal);
+    color: var(--text-white);
     text-decoration: none;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    opacity: 0.7;
+    transition: all 0.2s;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
 }
 
 .chapter-nav a:hover {
     opacity: 1;
     color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+}
+
+[data-theme="dark"] .chapter-nav {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* --- Endless Scroll Loader --- */
