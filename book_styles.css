@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap');
+
+:root {
+    --heading-font: 'Fraunces', serif;
+    --body-font: 'EB Garamond', serif;
+    --bg-paper: #fdfaf3;
+    /* Antique Bone/Ivory */
+    --text-charcoal: #1a1a1a;
+    --accent-gold: #9d7e3e;
+    --margin-inner: 25mm;
+    --margin-outer: 45mm;
+    --line-height: 1.45;
+    /* Classical tightening */
+}
+
+@page {
+    size: A4;
+    margin: 25mm var(--margin-outer) 30mm var(--margin-inner);
+
+    @bottom-center {
+        content: element(footer);
+    }
+}
+
+/* For even pages, swap margins for proper binding look */
+@page :left {
+    margin: 25mm var(--margin-inner) 30mm var(--margin-outer);
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: 12.5pt;
+    line-height: var(--line-height);
+    color: var(--text-charcoal);
+    background-color: var(--bg-paper);
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.book-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    background-color: var(--bg-paper);
+    min-height: 100vh;
+}
+
+/* Elite Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--text-charcoal);
+    line-height: 1.1;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-size: 3.5em;
+    text-align: center;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.05em;
+    border-bottom: 0.5px solid var(--accent-gold);
+    padding-bottom: 0.5em;
+    page-break-before: always;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-style: italic;
+    border-left: 1px solid var(--accent-gold);
+    padding-left: 20px;
+}
+
+p {
+    margin-bottom: 1.2em;
+    text-indent: 1.5em;
+    /* Traditional literary indent */
+}
+
+p:first-of-type,
+h1+p,
+h2+p {
+    text-indent: 0;
+    /* Traditional: no indent for first paragraph */
+}
+
+/* Boutique Drop Cap */
+.drop-cap::first-letter {
+    font-family: var(--heading-font);
+    font-size: 5.5em;
+    /* Slightly larger for prize quality */
+    float: left;
+    margin-top: 0.05em;
+    margin-right: 0.15em;
+    line-height: 0.7;
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+/* First Line Excellence */
+p.intro-line::first-line {
+    font-variant: small-caps;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+/* Infographic Action Boards */
+.action-board {
+    margin: 2.5em 0;
+    padding: 1.5em;
+    background-color: #ffffff;
+    border: 1px solid #e0d8c3;
+    border-left: 5px solid var(--accent-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    break-inside: avoid;
+}
+
+.action-board::before {
+    content: "IMPLEMENTATION STRATEGY";
+    display: block;
+    font-family: var(--heading-font);
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    color: var(--accent-gold);
+    margin-bottom: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid #f0eadd;
+    padding-bottom: 0.5em;
+}
+
+.action-board table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.action-board th {
+    text-align: left;
+    background-color: #f9f7f0;
+    padding: 0.8em;
+    font-weight: bold;
+    border-bottom: 2px solid var(--text-charcoal);
+    font-family: var(--heading-font);
+    font-variant: small-caps;
+    letter-spacing: 0.05em;
+}
+
+.action-board td {
+    padding: 0.8em;
+    border-bottom: 1px solid #f0eadd;
+    vertical-align: top;
+}
+
+.action-board tr:last-child td {
+    border-bottom: none;
+}
+
+/* Part Pages: The "Grand Prize" touch */
+.part-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    page-break-after: always;
+    background-color: var(--bg-paper);
+}
+
+.part-page h1 {
+    font-size: 4em;
+    border: none;
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+}
+
+.part-page .part-number {
+    font-family: var(--body-font);
+    font-style: italic;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    opacity: 0.6;
+}
+
+/* Ornamental Section Dividers */
+.ornamental-divider {
+    text-align: center;
+    margin: 5em 0;
+    font-size: 1.5em;
+    color: var(--accent-gold);
+    letter-spacing: 1em;
+    opacity: 0.6;
+}
+
+.ornamental-divider::before {
+    content: "❦ ❦ ❦";
+    /* Classic fleur-on-rose style */
+}
+
+/* Front Matter Elegance */
+.title-page {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    page-break-after: always;
+}
+
+.title-page h1 {
+    font-size: 5.5em;
+    border: none;
+    margin: 0;
+    font-variant: normal;
+}
+
+.title-page .subtitle {
+    font-style: italic;
+    font-size: 1.4em;
+    margin-top: 0.5em;
+    color: var(--accent-gold);
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 15mm;
+    left: var(--margin-inner);
+    right: var(--margin-outer);
+    font-size: 8pt;
+    font-style: italic;
+    border-top: 0.5px solid #ddd;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.6;
+}
+
+/* Table of Contents */
+.toc {
+    page-break-after: always;
+}
+
+.toc h1 {
+    font-size: 2em;
+    text-align: left;
+    border: none;
+    margin-bottom: 2em;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-item {
+    margin-bottom: 1.2em;
+    font-size: 1.1em;
+}
+
+.toc-item a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+}
+
+.toc-item a:hover {
+    border-bottom-color: var(--accent-gold);
+}
+
+@media print {
+    .book-wrapper {
+        padding: 0;
+        max-width: none;
+    }
+}
