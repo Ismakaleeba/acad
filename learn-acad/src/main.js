@@ -301,28 +301,33 @@ class LearnACAD {
     chapterWrapper.dataset.id = chapter.id
 
     // 1. Create Hero Section
-    const firstH1 = temp.querySelector('h1')
     const hero = document.createElement('div')
     hero.className = 'chapter-hero'
-    if (firstH1) {
-      hero.appendChild(firstH1.cloneNode(true))
 
-      // Reading Time Estimate
-      const wordCount = chapter.content.split(/\s+/).length
-      const readingTime = Math.ceil(wordCount / 200)
-      const meta = document.createElement('div')
-      meta.className = 'chapter-meta'
-      meta.innerHTML = `<span>${readingTime} MIN READ</span> <span>•</span> <span>${wordCount} WORDS</span>`
-      hero.appendChild(meta)
+    // Chapter Title
+    const h1 = document.createElement('h1')
+    h1.textContent = chapter.title
+    hero.appendChild(h1)
 
-      const firstP = temp.querySelector('p')
-      if (firstP && firstP.previousElementSibling === firstH1) {
-        firstP.classList.add('drop-cap', 'intro-line')
-        hero.appendChild(firstP.cloneNode(true))
-        firstP.remove()
-      }
-      firstH1.remove()
+    // Reading Time Estimate
+    const wordCount = chapter.content.split(/\s+/).length
+    const readingTime = Math.ceil(wordCount / 200)
+    const meta = document.createElement('div')
+    meta.className = 'chapter-meta'
+    meta.innerHTML = `<span>${readingTime} MIN READ</span> <span>•</span> <span>${wordCount} WORDS</span>`
+    hero.appendChild(meta)
+
+    // Drop Cap Intro logic
+    const firstP = temp.querySelector('p')
+    if (firstP) {
+      firstP.classList.add('drop-cap', 'intro-line')
+      hero.appendChild(firstP.cloneNode(true))
+      firstP.remove()
     }
+
+    // Remove any accidental H1s in content
+    const contentH1 = temp.querySelector('h1')
+    if (contentH1) contentH1.remove()
 
     // 2. Wrap Sections in Modules
     const contentViewer = document.createElement('div')
