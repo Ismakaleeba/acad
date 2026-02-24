@@ -449,6 +449,22 @@ body {
     hyphens: auto;
 }
 
+.content-module img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 3rem auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(var(--accent-gold-rgb), 0.2);
+    filter: grayscale(100%) contrast(1.1);
+    transition: transform 0.5s ease;
+}
+
+.content-module img:hover {
+    transform: scale(1.02);
+}
+
 .content-viewer ul,
 .content-viewer ol {
     font-size: 1.15rem;

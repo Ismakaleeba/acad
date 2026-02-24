@@ -17,6 +17,8 @@ You will realise very quickly that ACAD does not reward what traditional debate 
 
 # 1. What is Debate in ACAD?
 
+![Debater Silhouette](/assets/images/debater_emory.png)
+
 Before you understand what ACAD is, you must be very clear about what debate traditionally is. Not in theory, but in practice.
 
 
@@ -91,6 +93,8 @@ ACAD is built around one disruptive idea: debating is not about defending positi
 
 # 2. The ACAD Culture
 
+![Systems Mapping Concept](/assets/images/systems_concept.png)
+
 (Non-negotiable principles)
 
 This chapter defines the soul of ACAD.
@@ -129,7 +133,7 @@ Tip: Implementation realism is the ultimate filter in ACAD. If a design sounds t
 
 Split: Case Study: Tourism Reform in Rwanda
 In 2024, a strategic intervention was designed to link TVET graduates directly to luxury eco-lodges. The system failed initially because of a missing coordination link between the curriculum and the specific high-end service standards of the lodges. By redesigning the data loop, retention rates increased by 40%.
-![Strategic Mapping](https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800)
+![Strategic Mapping](/assets/images/global_impact.png)
 
 This is what ACAD is.
 
@@ -159,6 +163,8 @@ If you misunderstand this part, everything else in ACAD collapses into normal de
 
 
 ## 3. ACAD Motions
+
+![Global Impact and Systems Design](/assets/images/global_impact.png)
 
 
 
