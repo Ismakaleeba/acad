@@ -449,6 +449,11 @@ body {
     hyphens: auto;
 }
 
+[data-theme="dark"] .content-viewer p,
+[data-theme="dark"] .content-module p {
+    color: #cbd5e1;
+}
+
 .content-module img {
     max-width: 100%;
     height: auto;
@@ -468,16 +473,27 @@ body {
 .content-viewer ul,
 .content-viewer ol {
     font-size: 1.15rem;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--text-charcoal);
     margin-bottom: 1.5rem;
     max-width: 75ch;
 }
 
+.content-viewer li,
+.content-module li {
+    line-height: 1.65;
+    max-width: 75ch;
+}
+
+[data-theme="dark"] .content-viewer li,
+[data-theme="dark"] .content-module li {
+    color: #cbd5e1;
+}
+
 .content-module {
     background: var(--bone-ivory);
-    padding: 2.5rem 3.5rem;
-    margin: 3rem 0;
+    padding: 2rem 3rem;
+    margin: 2.5rem 0;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(var(--accent-gold-rgb), 0.1);
@@ -573,13 +589,40 @@ body {
 }
 
 .content-module h3 {
-    font-size: 1.6rem;
-    margin: 2.5rem 0 1.2rem 0;
+    font-size: 1.5rem;
+    margin: 1.8rem 0 0.8rem 0;
     color: var(--accent-gold);
     font-family: var(--heading-font);
     font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+}
+
+/* Sub-section ornamental divider before H3 */
+.sub-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.8rem 0 0.5rem 0;
+    opacity: 0.35;
+}
+
+.sub-divider::before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--accent-gold);
+    max-width: 40px;
+}
+
+.sub-divider::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    border: 1px solid var(--accent-gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
 }
 
 [data-theme="dark"] .content-module.heading-card {
@@ -1092,4 +1135,231 @@ body {
     .curriculum-page h1 {
         font-size: 2.5rem;
     }
+
+    .notes-drawer {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* --- Notes Sliding Drawer Specifics --- */
+.notes-drawer {
+    /* Reuse glossary drawer base, but can be distinct */
+    width: 400px;
+    background: var(--bone-ivory);
+}
+
+[data-theme="dark"] .notes-drawer {
+    background: #0f172a;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notes-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    padding-bottom: 2rem;
+    height: 100%;
+}
+
+#notes-textarea {
+    flex: 1;
+    width: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--text-charcoal);
+    padding: 0;
+}
+
+[data-theme="dark"] #notes-textarea {
+    color: #cbd5e1;
+}
+
+#notes-textarea::placeholder {
+    color: var(--text-charcoal);
+    opacity: 0.3;
+}
+
+[data-theme="dark"] #notes-textarea::placeholder {
+    color: #94a3b8;
+    opacity: 0.4;
+}
+
+.notes-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(var(--accent-gold-rgb), 0.2);
+}
+
+#notes-save-status {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#notes-save-status.saved {
+    color: #10b981;
+    /* green success */
+}
+
+/* --- Persistent Highlighting --- */
+::selection {
+    background: rgba(181, 147, 77, 0.3);
+    /* Soft gold selection */
+    text-shadow: none;
+}
+
+.highlight-toolbar {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-sidebar);
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    pointer-events: none;
+}
+
+.highlight-toolbar.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+[data-theme="dark"] .highlight-toolbar {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hl-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.hl-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hl-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.hl-swatch.gold {
+    background: #fef08a;
+}
+
+.hl-swatch.emerald {
+    background: #a7f3d0;
+}
+
+.hl-swatch.ocean {
+    background: #bae6fd;
+}
+
+.hl-swatch.rose {
+    background: #fecdd3;
+}
+
+.hl-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 4px;
+}
+
+.hl-remove-btn {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.hl-remove-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ef4444;
+    /* red tint */
+}
+
+/* Highlight Output Styling */
+mark.acad-highlight {
+    background-color: transparent;
+    padding: 0.1em 0;
+    border-radius: 3px;
+    color: inherit;
+    transition: background-color 0.3s ease;
+}
+
+mark.acad-highlight.hl-gold {
+    background-color: rgba(254, 240, 138, 0.5);
+}
+
+mark.acad-highlight.hl-emerald {
+    background-color: rgba(167, 243, 208, 0.5);
+}
+
+mark.acad-highlight.hl-ocean {
+    background-color: rgba(186, 230, 253, 0.5);
+}
+
+mark.acad-highlight.hl-rose {
+    background-color: rgba(254, 205, 211, 0.5);
+}
+
+/* Dark mode vividness adjustments */
+[data-theme="dark"] mark.acad-highlight.hl-gold {
+    background-color: rgba(250, 204, 21, 0.3);
+}
+
+[data-theme="dark"] mark.acad-highlight.hl-emerald {
+    background-color: rgba(52, 211, 153, 0.3);
+}
+
+[data-theme="dark"] mark.acad-highlight.hl-ocean {
+    background-color: rgba(56, 189, 248, 0.3);
+}
+
+[data-theme="dark"] mark.acad-highlight.hl-rose {
+    background-color: rgba(251, 113, 133, 0.3);
+}
+
+mark.acad-highlight:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

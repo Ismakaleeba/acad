@@ -30,8 +30,18 @@ class LearnACAD {
       glossaryToggle: document.getElementById('glossary-toggle'),
       glossaryDrawer: document.getElementById('glossary-drawer'),
       glossaryContent: document.getElementById('glossary-content'),
-      closeGlossary: document.getElementById('close-glossary')
+      closeGlossary: document.getElementById('close-glossary'),
+      notesToggle: document.getElementById('notes-toggle'),
+      notesDrawer: document.getElementById('notes-drawer'),
+      notesTextarea: document.getElementById('notes-textarea'),
+      closeNotes: document.getElementById('close-notes'),
+      notesSaveStatus: document.getElementById('notes-save-status'),
+      hlToolbar: document.getElementById('highlight-toolbar'),
+      hlRemoveBtn: document.getElementById('hl-remove-btn')
     }
+
+    this.highlights = JSON.parse(localStorage.getItem('acad-user-highlights')) || {}
+    this.currentSelection = null
 
     this.init()
   }
@@ -55,6 +65,7 @@ class LearnACAD {
         <div class="error-state">
           <h2>Architecture Loading Error</h2>
           <p>We could not initialize the curriculum database. Please ensure content.json is generated.</p>
+          <pre style="text-align:left; font-size:12px; margin-top:20px; color:#ef4444; background: #fee2e2; padding:10px; border-radius:5px; white-space:pre-wrap;">${error.message}\n${error.stack}</pre>
         </div>
       `
     }
@@ -84,6 +95,21 @@ class LearnACAD {
     this.elements.themeToggle.addEventListener('click', () => this.toggleTheme())
     this.elements.glossaryToggle.addEventListener('click', () => this.toggleGlossary(true))
     this.elements.closeGlossary.addEventListener('click', () => this.toggleGlossary(false))
+    this.elements.notesToggle.addEventListener('click', () => this.toggleNotes(true))
+    this.elements.closeNotes.addEventListener('click', () => this.toggleNotes(false))
+
+    // Note autosave listener
+    let saveTimeout
+    this.elements.notesTextarea.addEventListener('input', (e) => {
+      this.elements.notesSaveStatus.textContent = 'Saving...'
+      this.elements.notesSaveStatus.classList.remove('saved')
+      clearTimeout(saveTimeout)
+      saveTimeout = setTimeout(() => {
+        localStorage.setItem('acad-user-notes', e.target.value)
+        this.elements.notesSaveStatus.textContent = 'Saved locally'
+        this.elements.notesSaveStatus.classList.add('saved')
+      }, 500)
+    })
 
     // Search listeners
     this.elements.searchTrigger.addEventListener('click', () => this.toggleSearch(true))
@@ -98,11 +124,17 @@ class LearnACAD {
       if (e.key === 'Escape') {
         this.toggleSearch(false)
         this.toggleGlossary(false)
+        this.toggleNotes(false)
       }
       // Glossary drawer toggle (Cmd+G)
       if ((e.metaKey || e.ctrlKey) && e.key === 'g') {
         e.preventDefault()
         this.toggleGlossary(true)
+      }
+      // Notes drawer toggle (Cmd+N)
+      if ((e.metaKey || e.ctrlKey) && e.key === 'n') {
+        e.preventDefault()
+        this.toggleNotes(true)
       }
       // Focus mode toggle (Cmd+B like VS Code)
       if ((e.metaKey || e.ctrlKey) && e.key === 'b') {
@@ -116,6 +148,43 @@ class LearnACAD {
     const backToTop = document.getElementById('back-to-top')
     backToTop.addEventListener('click', () => {
       this.elements.mainContent.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+
+    // Highlighting Logic Listeners
+    this.elements.mainContent.addEventListener('mouseup', (e) => {
+      // Don't trigger new selection if clicking on an existing highlight
+      if (e.target.closest('.acad-highlight')) return
+      this.handleTextSelection()
+    })
+
+    document.addEventListener('selectionchange', () => {
+      const selection = document.getSelection()
+      if (!selection || selection.isCollapsed) {
+        // Only hide if we aren't explicitly focused on removal
+        if (!this.currentSelection || !this.currentSelection.isRemoval) {
+          this.hideHighlightToolbar()
+        }
+      }
+    })
+
+    // Completely prevent ANY default mousedown behavior on the toolbar
+    // so interacting with it NEVER clears the current document selection
+    this.elements.hlToolbar.addEventListener('mousedown', (e) => {
+      e.preventDefault()
+    })
+
+    this.elements.hlToolbar.querySelectorAll('.hl-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        this.applyHighlight(btn.dataset.color)
+      })
+    })
+
+    this.elements.hlRemoveBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      this.removeHighlight()
     })
 
     // Scroll progress, reveal logic, and endless scrolling
@@ -334,11 +403,19 @@ class LearnACAD {
     contentViewer.className = 'content-viewer'
     contentViewer.appendChild(hero)
 
+    // FIX 1: Collect all pre-H2 elements into a SINGLE intro module
     let currentModule = null
+    let introModule = null // accumulator for pre-H2 content
 
     Array.from(temp.children).forEach(child => {
       if (child.tagName === 'H2') {
-        if (currentModule) {
+        // Flush intro module if we haven't yet
+        if (introModule && introModule.children.length > 0) {
+          contentViewer.appendChild(introModule)
+          introModule = null
+        }
+
+        if (currentModule && currentModule.children.length > 0) {
           contentViewer.appendChild(currentModule)
           const divider = document.createElement('div')
           divider.className = 'strategic-divider'
@@ -353,21 +430,48 @@ class LearnACAD {
         h2Module.appendChild(child)
         contentViewer.appendChild(h2Module)
 
-        // Start a new module for following content
+        // Start a fresh content module for following content
         currentModule = document.createElement('div')
         currentModule.className = 'content-module'
       } else if (currentModule) {
         currentModule.appendChild(child)
       } else {
-        const ghostModule = document.createElement('div')
-        ghostModule.className = 'content-module'
-        ghostModule.appendChild(child)
-        contentViewer.appendChild(ghostModule)
+        // Pre-H2 content: gather into one shared intro module
+        if (!introModule) {
+          introModule = document.createElement('div')
+          introModule.className = 'content-module'
+        }
+        introModule.appendChild(child)
       }
     })
+
+    // Flush remaining intro or current module
+    if (introModule && introModule.children.length > 0) contentViewer.appendChild(introModule)
     if (currentModule && currentModule.children.length > 0) contentViewer.appendChild(currentModule)
 
-    // Mark heading-focused modules
+    // FIX 2: Merge thin modules (<=2 children, no heading-card) into their predecessor
+    const allModules = Array.from(contentViewer.querySelectorAll('.content-module:not(.heading-card)'))
+    for (let i = allModules.length - 1; i >= 1; i--) {
+      const mod = allModules[i]
+      const prev = allModules[i - 1]
+      if (mod.children.length <= 2 && !mod.classList.contains('heading-card')) {
+        Array.from(mod.children).forEach(c => prev.appendChild(c))
+        const prevSibling = mod.previousElementSibling
+        if (prevSibling && prevSibling.classList.contains('strategic-divider')) {
+          prevSibling.remove()
+        }
+        mod.remove()
+      }
+    }
+
+    // FIX 3: Inject sub-divider ornaments before each H3 within modules
+    contentViewer.querySelectorAll('.content-module:not(.heading-card) h3').forEach(h3 => {
+      const subDiv = document.createElement('div')
+      subDiv.className = 'sub-divider'
+      h3.parentNode.insertBefore(subDiv, h3)
+    })
+
+    // Mark heading-focused modules (safety pass)
     contentViewer.querySelectorAll('.content-module').forEach(module => {
       const children = Array.from(module.children)
       if (children.length === 1 && children[0].tagName === 'H2') {
@@ -455,6 +559,9 @@ class LearnACAD {
     // apply smart punctuation
     this.applySmartPunctuation(chapterWrapper)
 
+    // Restore saved highlights
+    this.restoreHighlights(chapter.id, chapterWrapper)
+
     // Observe modules for reveal animations
     chapterWrapper.querySelectorAll('.content-module').forEach(m => this.observer.observe(m))
 
@@ -477,6 +584,18 @@ class LearnACAD {
     this.elements.glossaryDrawer.classList.toggle('active', state)
     if (state && !this.elements.glossaryContent.innerHTML.trim()) {
       this.renderGlossaryItems()
+    }
+  }
+
+  toggleNotes(state) {
+    this.elements.notesDrawer.classList.toggle('active', state)
+    if (state) {
+      // Load saved notes when opening
+      const savedNotes = localStorage.getItem('acad-user-notes')
+      if (savedNotes !== null) {
+        this.elements.notesTextarea.value = savedNotes
+      }
+      setTimeout(() => this.elements.notesTextarea.focus(), 100)
     }
   }
 
@@ -572,6 +691,178 @@ class LearnACAD {
         this.toggleGlossary(true)
       })
     })
+  }
+
+  // --- Highlighting Engine ---
+  handleTextSelection() {
+    // Wait briefly to ensure default selection events have settled
+    setTimeout(() => {
+      const selection = window.getSelection()
+      if (!selection || selection.isCollapsed || !selection.rangeCount || selection.toString().trim().length === 0) {
+        if (!this.currentSelection || !this.currentSelection.isRemoval) {
+          return this.hideHighlightToolbar()
+        }
+        return
+      }
+
+      const range = selection.getRangeAt(0)
+      const container = range.commonAncestorContainer
+      const chapterItem = container.nodeType === 3
+        ? container.parentElement.closest('.chapter-wrapper')
+        : container.closest('.chapter-wrapper')
+
+      if (!chapterItem) {
+        return this.hideHighlightToolbar()
+      }
+
+      const rect = range.getBoundingClientRect()
+      const mainRect = this.elements.mainContent.getBoundingClientRect()
+
+      // Position toolbar above selection
+      const top = rect.top - mainRect.top + this.elements.mainContent.scrollTop - 45
+      const left = rect.left - mainRect.left + (rect.width / 2) - (this.elements.hlToolbar.offsetWidth / 2)
+
+      this.elements.hlToolbar.style.top = `${top}px`
+      this.elements.hlToolbar.style.left = `${Math.max(10, left)}px`
+      this.elements.hlToolbar.classList.add('active')
+
+      this.currentSelection = {
+        chapterId: chapterItem.dataset.id,
+        text: selection.toString(),
+        range: range
+      }
+    }, 10)
+  }
+
+  hideHighlightToolbar() {
+    this.elements.hlToolbar.classList.remove('active')
+  }
+
+  applyHighlight(color) {
+    if (!this.currentSelection) return
+
+    const { chapterId, text, range } = this.currentSelection
+    const id = 'hl-' + Date.now()
+
+    // Create the visual mark element
+    const mark = document.createElement('mark')
+    mark.className = `acad-highlight hl-${color}`
+    mark.dataset.id = id
+    mark.textContent = range.extractContents().textContent
+
+    range.insertNode(mark)
+    window.getSelection().removeAllRanges()
+    this.hideHighlightToolbar()
+
+    // Save to persistence
+    if (!this.highlights[chapterId]) {
+      this.highlights[chapterId] = []
+    }
+
+    this.highlights[chapterId].push({
+      id,
+      color,
+      text: text.trim()
+    })
+    localStorage.setItem('acad-user-highlights', JSON.stringify(this.highlights))
+
+    // Add remove listener to new mark
+    mark.addEventListener('mousedown', (e) => {
+      e.preventDefault() // prevent selection collapse
+      e.stopPropagation()
+    })
+    mark.addEventListener('click', (e) => this.showRemoveToolbar(e, mark))
+  }
+
+  showRemoveToolbar(e, markElement) {
+    e.stopPropagation()
+    e.preventDefault()
+
+    // Clear any active document text selection immediately so they don't fight
+    window.getSelection().removeAllRanges()
+
+    const rect = markElement.getBoundingClientRect()
+    const mainRect = this.elements.mainContent.getBoundingClientRect()
+
+    const top = rect.top - mainRect.top + this.elements.mainContent.scrollTop - 45
+    const left = rect.left - mainRect.left + (rect.width / 2) - (this.elements.hlToolbar.offsetWidth / 2)
+
+    this.elements.hlToolbar.style.top = `${top}px`
+    this.elements.hlToolbar.style.left = `${Math.max(10, left)}px`
+    this.elements.hlToolbar.classList.add('active')
+
+    this.currentSelection = { isRemoval: true, markElement }
+  }
+
+  removeHighlight() {
+    if (!this.currentSelection || !this.currentSelection.isRemoval) return
+
+    const mark = this.currentSelection.markElement
+    const chapterId = mark.closest('.chapter-wrapper').dataset.id
+    const hlId = mark.dataset.id
+
+    // Check if the mark is still attached
+    if (!mark.parentNode) return
+
+    // Remove visual mark but keep text
+    const textNode = document.createTextNode(mark.textContent)
+    mark.parentNode.replaceChild(textNode, mark)
+
+    // Unselect the text so we don't immediately pop the create toolbar back up
+    window.getSelection().removeAllRanges()
+
+    // Remove from persistence
+    if (this.highlights[chapterId]) {
+      this.highlights[chapterId] = this.highlights[chapterId].filter(h => h.id !== hlId)
+      localStorage.setItem('acad-user-highlights', JSON.stringify(this.highlights))
+    }
+
+    this.hideHighlightToolbar()
+    this.currentSelection = null
+  }
+
+  restoreHighlights(chapterId, container) {
+    const chapterHighlights = this.highlights[chapterId]
+    if (!chapterHighlights || chapterHighlights.length === 0) return
+
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false)
+    const textNodes = []
+    let node
+    while ((node = walker.nextNode())) {
+      textNodes.push(node)
+    }
+
+    // Attempt to restore each highlight by finding exact text matches
+    chapterHighlights.forEach(hl => {
+      if (!hl.text) return
+
+      for (let i = 0; i < textNodes.length; i++) {
+        const textNode = textNodes[i]
+        const index = textNode.nodeValue.indexOf(hl.text)
+
+        if (index !== -1) {
+          const range = document.createRange()
+          range.setStart(textNode, index)
+          range.setEnd(textNode, index + hl.text.length)
+
+          const mark = document.createElement('mark')
+          mark.className = `acad-highlight hl-${hl.color}`
+          mark.dataset.id = hl.id
+
+          range.surroundContents(mark)
+          mark.addEventListener('mousedown', (e) => {
+            e.preventDefault() // prevent selection collapse
+            e.stopPropagation()
+          })
+          mark.addEventListener('click', (e) => this.showRemoveToolbar(e, mark))
+
+          // Re-evaluate text nodes since we split one
+          textNodes.splice(i, 1)
+          break; // Move to next highlight once applied
+        }
+      }
+    })
+
   }
 
   applySmartPunctuation(container) {

@@ -478,7 +478,7 @@ When you walk into an ACAD round, you are not walking into a debate.
 
 You are walking into a design contest for reality.
 
-# 4. Understanding the Problem Space (Systems Thinking)
+# 3. Understanding the Problem Space (Systems Thinking)
 
 Why ACAD does not let you fix broken outcomes without fixing the machine that creates them
 
@@ -589,7 +589,7 @@ That is the foundation of real ACAD debating.
 
 
 
-# 5. Teams and Sides
+# 4. Teams and Sides
 
 (Why ACAD deliberately deletes “Government” and “Opposition” — and what replaces them)
 
@@ -857,7 +857,7 @@ That is the culture ACAD protects.
 
 # PART IV – Debate Format & Timing
 
-# 8. The ACAD Debate Structure
+# 5. The ACAD Debate Structure
 
 An ACAD round is built like a real project pitch and technical review process, requiring teams to build, test, compare, and evaluate in a specific sequence: System → Design → Delivery → Impact. You must earn the right to design by first explaining the system machine, and only then can you prove delivery feasibility and measurable impact. This official 4–5–5–4–3 format ensures that information appears exactly when the evaluator needs it, mirroring the logical dependencies of real-world project planning where you cannot act before you understand.
 
@@ -1215,7 +1215,7 @@ the round has been judged incorrectly.
 
 
 
-# 17. The ACAD Weighing Framework
+# 6. The ACAD Weighing Framework
 
 Once you understand what must be compared, ACAD gives you an official way to weigh those comparisons.
 
@@ -1974,7 +1974,7 @@ It proves that your system can survive contact with reality.
 
 And that is the only kind of truth that matters.
 
-# 19. Research Workflow for ACAD Teams
+# 7. Research Workflow for ACAD Teams
 
 In ACAD, research is not a homework task.
 
@@ -2339,7 +2339,7 @@ If you cannot point from a section of your Action Board to a research step, your
 
 
 
-# 20. Referencing & Integrity
+# 8. Referencing & Integrity
 
 ACAD treats integrity as part of system quality.
 
@@ -2509,7 +2509,7 @@ They are diagnostic.
 
 
 
-# 21. System Attacks
+# 9. System Attacks
 
 A system attack asks one question:
 
@@ -3999,7 +3999,7 @@ It is a final engineering decision.
 
 
 
-# 27.1 The three absolute rules of ACAD rebuttals
+# 10. 1 The three absolute rules of ACAD rebuttals
 
 ### Rule 1 — No repetition
 
@@ -4066,7 +4066,7 @@ If a sentence does not clearly move the judge toward a decision, it does not bel
 
 
 
-# 27.2 What “comparison” actually means in ACAD
+# 11. 2 What “comparison” actually means in ACAD
 
 Comparison in ACAD is not:
 “we are better than them.”
@@ -4124,7 +4124,7 @@ In ACAD, the other team’s weakness is the strongest evidence for your superior
 
 
 
-# 27.3 What “collapse” really means
+# 12. 3 What “collapse” really means
 
 Collapse is the most misunderstood concept in ACAD.
 
@@ -4167,7 +4167,7 @@ Decision compression.
 
 
 
-# 27.4 The hidden structure of a perfect ACAD rebuttal
+# 13. 4 The hidden structure of a perfect ACAD rebuttal
 
 Every high-quality ACAD rebuttal follows this internal structure:
 
@@ -4247,7 +4247,7 @@ Logically.
 
 
 
-# 27.5 How ACAD rebuttals use attacks from earlier parts
+# 14. 5 How ACAD rebuttals use attacks from earlier parts
 
 In traditional formats, rebuttals often introduce new arguments.
 
@@ -4283,7 +4283,7 @@ You are explaining consequences.
 
 
 
-# 27.6 What you must never do in an ACAD rebuttal
+# 15. 6 What you must never do in an ACAD rebuttal
 
 ### Never:
 
@@ -4305,7 +4305,7 @@ Rebuttal is decision time.
 
 
 
-# 27.7 How ACAD rebuttals treat evidence
+# 16. 7 How ACAD rebuttals treat evidence
 
 In rebuttal, evidence is not quoted.
 
@@ -4325,7 +4325,7 @@ Rebuttal uses evidence to confirm credibility — not to build a new case.
 
 
 
-# 27.8 The mental shift you must make
+# 17. 8 The mental shift you must make
 
 This is especially important for you, Ismael.
 
@@ -4351,7 +4351,7 @@ That is the correct ACAD mindset.
 
 
 
-# 27.9 A short example of a complete ACAD rebuttal section
+# 18. 9 A short example of a complete ACAD rebuttal section
 
 Let us model a full mini-collapse.
 
@@ -4382,7 +4382,7 @@ That is an ACAD rebuttal.
 In ACAD, rebuttal is not the art of speaking well.
 It is the art of helping the Evaluator choose the system that will not fail.
 
-# 28. Impact Lead Closing Method
+# 19. Impact Lead Closing Method
 
 The Impact Lead Closing is the pinnacle of the ACAD debate.
 After all the systems have been presented, analyzed, cross-examined, and stressed, it is the Impact Lead’s job to crystallize the decision for the Evaluator.
@@ -4615,7 +4615,7 @@ Every word should guide, point, and compare, never persuade for persuasion’s s
 
 This mindset keeps the debate action-focused, measurable, and true to ACAD culture.
 
-# 30. Using Visuals Properly
+# 20. Using Visuals Properly
 
 In ACAD, your Action Board is the backbone of your argument. It is not decoration; it is the system itself. How you present it visually can make or break comprehension for the Evaluator. Poor visuals lead to confusion, misunderstandings, and lost points—even if your system is brilliant.
 
@@ -4885,7 +4885,7 @@ Think of yourself as a real-world funding committee or operational director:
 
 This mindset ensures that ACAD debates remain practical, action-driven, and credible.
 
-# 32. Official ACAD Ballot
+# 21. Official ACAD Ballot
 
 The Official ACAD Ballot is the Evaluator’s tool for recording observations, comparing systems, and deciding the winner. Unlike traditional debate scoring sheets, the ACAD ballot focuses exclusively on system performance, design logic, operational feasibility, impact, and scalability.
 
@@ -5006,7 +5006,7 @@ Key Takeaways:
 
 - Collapsing and comparing across lenses ensures decisions are logical, evidence-based, and reproducible.
 
-# 33. How Decisions Are Written
+# 22. How Decisions Are Written
 
 In ACAD, writing decisions is just as important as making them. The goal is to clearly communicate the rationale behind the judgment, so teams understand why one system outperformed the other, and so that future Evaluators can replicate the logic if needed.
 
@@ -5247,7 +5247,7 @@ Outcome: Beginners learn how mapping, action boards, and comparison combine in A
 
 - Early exposure to comparative analysis prepares for intermediate and advanced ACAD stages.
 
-# 35. Advanced Track
+# 23. Advanced Track
 
 The Advanced Track is for debaters who are comfortable with ACAD basics—mapping systems, designing interventions, building boards, and presenting impact chains. At this level, the focus shifts to strategic thinking, operational stress-testing, and system-level refinement.
 
@@ -5597,7 +5597,7 @@ Example:
 
 
 
-# 46. Worked Example – Complete ACAD Debate (Tourism Motion)
+# 24. Worked Example – Complete ACAD Debate (Tourism Motion)
 
 To make ACAD fully tangible, here’s a step-by-step demonstration of a debate using the motion:
 
@@ -5729,7 +5729,7 @@ Although both systems demonstrate credible impact, Team B’s system shows highe
 
 This worked example demonstrates a full ACAD debate from motion, Action Boards, speaker flow, cross-examination, comparative analysis, to final written decision. Teams can replicate this structure for any sector, motion, or solution challenge.
 
-# 47. Sample ACAD Motion Walk-through
+# 25. Sample ACAD Motion Walk-through
 
 To make ACAD concrete and actionable, this section walks you through a full debate cycle using a sample motion. We will show how teams prepare, present, interact, and are evaluated in real time. This is more than theory—it’s a practical guide for competitors and trainers.
 
@@ -5870,7 +5870,7 @@ Takeaway: ACAD is not just about arguing—it’s about demonstrating real, scal
 
 This walk-through makes ACAD readable, actionable, and replicable, showing everything from motion to judge decision.
 
-# 48. Sample ACAD Debate Script (Annotated)
+# 26. Sample ACAD Debate Script (Annotated)
 
 To bring ACAD to life, this section presents a full, annotated script of a debate on the motion:
 
@@ -6219,7 +6219,7 @@ Running an ACAD tournament requires attention to space, equipment, timing, and j
 
 Key Principle: Scaling must not compromise board clarity, timing integrity, or evaluation fairness.
 
-# 51. Global Standardisation Rules
+# 27. Global Standardisation Rules
 
 For ACAD to be adopted and recognized internationally, tournaments, teams, judges, and motions must comply with a universal set of rules. This ensures fairness, clarity, and credibility, and allows ACAD to scale across countries and regions.
 

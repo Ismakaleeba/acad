@@ -37,6 +37,13 @@
             <span>Search</span>
             <kbd>⌘K</kbd>
           </div>
+          <button id="notes-toggle" class="theme-toggle" title="Open Notes (Cmd+N)">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </button>
           <button id="glossary-toggle" class="theme-toggle" title="Open Glossary">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
@@ -103,6 +110,43 @@
     <div id="glossary-content" class="glossary-content">
       <!-- Terms and definitions will be injected here -->
     </div>
+  </div>
+
+  <!-- Notes Sliding Drawer -->
+  <div id="notes-drawer" class="glossary-drawer notes-drawer">
+    <div class="drawer-header">
+      <h2>Strategic Notes</h2>
+      <button id="close-notes" class="close-drawer">✕ Close</button>
+    </div>
+    <div class="notes-content">
+      <textarea id="notes-textarea" placeholder="Record your strategic insights here..."></textarea>
+      <div class="notes-footer">
+        <span id="notes-save-status">Saved locally</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Highlight Toolbar -->
+  <div id="highlight-toolbar" class="highlight-toolbar">
+    <button class="hl-btn" data-color="gold" title="Highlight Gold">
+      <span class="hl-swatch gold"></span>
+    </button>
+    <button class="hl-btn" data-color="emerald" title="Highlight Emerald">
+      <span class="hl-swatch emerald"></span>
+    </button>
+    <button class="hl-btn" data-color="ocean" title="Highlight Ocean">
+      <span class="hl-swatch ocean"></span>
+    </button>
+    <button class="hl-btn" data-color="rose" title="Highlight Rose">
+      <span class="hl-swatch rose"></span>
+    </button>
+    <div class="hl-divider"></div>
+    <button id="hl-remove-btn" class="hl-remove-btn" title="Remove Highlight">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
   </div>
 
   <script type="module" src="/src/main.js"></script>
