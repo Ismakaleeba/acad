@@ -6,6 +6,13 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Learn ACAD — The Architecture of Critical Action Design</title>
+
+  <!-- Preconnect to Google Fonts for instant mobile rendering -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
@@ -72,7 +79,16 @@
       </header>
 
       <article id="main-content" class="main-content">
-        <!-- Content will be injected here -->
+        <!-- Skeleton loader visible immediately while JS parses chapters -->
+        <div class="skeleton-loader" id="skeleton-loader">
+          <div class="sk-block sk-title"></div>
+          <div class="sk-block sk-meta"></div>
+          <div class="sk-block sk-text"></div>
+          <div class="sk-block sk-text"></div>
+          <div class="sk-block sk-text short"></div>
+          <div class="sk-block sk-text"></div>
+          <div class="sk-block sk-text short"></div>
+        </div>
       </article>
 
       <footer class="app-footer">

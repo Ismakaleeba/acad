@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap');
+/* Fonts loaded via preconnect <link> in index.html for faster First Paint */
 
 :root {
     --primary-font: 'EB Garamond', serif;
@@ -1487,5 +1487,63 @@ mark.acad-highlight:hover {
     .highlight-toolbar {
         gap: 4px;
         padding: 6px 8px;
+    }
+}
+
+/* --- Skeleton Loader (Mobile First Paint) --- */
+@keyframes shimmer {
+    0% {
+        background-position: -600px 0;
+    }
+
+    100% {
+        background-position: 600px 0;
+    }
+}
+
+.skeleton-loader {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sk-block {
+    border-radius: 6px;
+    background: linear-gradient(90deg, #e8e2d5 25%, #f5f0e8 50%, #e8e2d5 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+    height: 18px;
+}
+
+[data-theme="dark"] .sk-block {
+    background: linear-gradient(90deg, #1e293b 25%, #263548 50%, #1e293b 75%);
+    background-size: 600px 100%;
+}
+
+.sk-block.sk-title {
+    height: 56px;
+    width: 70%;
+    margin-bottom: 8px;
+}
+
+.sk-block.sk-meta {
+    height: 14px;
+    width: 30%;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.sk-block.sk-text {
+    width: 100%;
+}
+
+.sk-block.sk-text.short {
+    width: 60%;
+}
+
+@media (max-width: 768px) {
+    .skeleton-loader {
+        padding: 30px 15px;
     }
 }

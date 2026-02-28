@@ -55,9 +55,13 @@ class LearnACAD {
       this.initScrollTracing()
       this.initTheme()
 
-      // Load first chapter by default
+      // Load first chapter by default — defer to let browser paint skeleton first
       if (this.content.parts.length > 0 && this.content.parts[0].chapters.length > 0) {
-        this.loadChapter(this.content.parts[0].chapters[0].id)
+        requestAnimationFrame(() => {
+          const skeleton = document.getElementById('skeleton-loader')
+          if (skeleton) skeleton.remove()
+          this.loadChapter(this.content.parts[0].chapters[0].id)
+        })
       }
     } catch (error) {
       console.error('Failed to initialize ACAD platform:', error)
