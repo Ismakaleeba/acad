@@ -131,6 +131,8 @@ This is the final and most unforgiving principle: implementation realism. Every 
 
 Tip: Implementation realism is the ultimate filter in ACAD. If a design sounds too perfect to be true, it probably is. Stress-test your own solution before your opponent does.
 
+Quiz: Which of the following is a strictly prohibited assumption in an ACAD system design? | Unlimited donor funding* | The existence of current ministries | Realistic budget expansion | Willingness of stakeholders to cooperate at a basic level
+
 Split: Case Study: Tourism Reform in Rwanda
 In 2024, a strategic intervention was designed to link TVET graduates directly to luxury eco-lodges. The system failed initially because of a missing coordination link between the curriculum and the specific high-end service standards of the lodges. By redesigning the data loop, retention rates increased by 40%.
 ![Strategic Alignment](https://i1.sndcdn.com/artworks-Pyt1wcRzyjqvaQi8-pv5iyQ-t500x500.jpg)
@@ -632,6 +634,8 @@ In ACAD, you are not attacking people, but stress-testing systems. Instead of sa
 Every ACAD team is built like a real project team, where each of the four speakers carries a functional responsibility within the solution. These roles—System Lead, Design Lead, Delivery Lead, and Impact Lead—define what you are responsible for throughout the entire process, not just when you are speaking. 
 
 The System Lead is the anchor of the team, responsible for diagnosing the current system, identifying bottlenecks, and defining the problem in operational terms. This is not storytelling, but a structural diagnosis that makes reality visible. They must clearly map the main actors and resource flows, ensuring that by the end of their speech, the judges can trace the logic of the system on the Action Board. Proposing actions before the system is explained is considered a structural mistake in ACAD.
+
+Quiz: Who is responsible for ensuring the design can survive reality and answering how the system would actually run if it started tomorrow? | The System Lead | The Design Lead | The Delivery Lead* | The Impact Lead
 
 
 
