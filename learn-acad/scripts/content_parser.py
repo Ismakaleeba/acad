@@ -58,9 +58,9 @@ if __name__ == "__main__":
     output_path = "public/content.json"
     
     if os.path.exists(md_path):
-        acad_data = parse_markdown(md_path)
+        parsed_data = parse_markdown(md_path)
         with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(acad_data, f, indent=2, ensure_ascii=False)
+            json.dump(parsed_data, f, indent=2, ensure_ascii=False)
         print(f"Successfully parsed into {output_path}")
     else:
-        print(f"File not found: {md_path}")
+        print(f"Could not find markdown file at {md_path}")
