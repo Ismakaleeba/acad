@@ -1,0 +1,174 @@
+[
+    {
+        "term": "ACAD",
+        "definition": "Action-Centered Academic Design — a framework for constructing rigorous, systems-thinking arguments that trace from root cause to measurable impact."
+    },
+    {
+        "term": "Action Board",
+        "definition": "A visual strategic tool used in ACAD to map a complete system design, from problem identification to impact measurement, across multiple stakeholder layers."
+    },
+    {
+        "term": "Comparative Advantage",
+        "definition": "The definitive reason why one system design outperforms another in a specific context, accounting for feasibility, scalability, and impact magnitude."
+    },
+    {
+        "term": "Impact Logic",
+        "definition": "The traceable sequence linking specific activities to measurable long-term changes — the argumentative spine of any ACAD case."
+    },
+    {
+        "term": "Scalability",
+        "definition": "The ability of a system to grow in scope or be replicated faithfully across different geographies, populations, or institutional contexts."
+    },
+    {
+        "term": "Feasibility",
+        "definition": "The operational reality and practical likelihood of a system working in the real world, accounting for political, financial, and logistical constraints."
+    },
+    {
+        "term": "Root Cause",
+        "definition": "The underlying structural issue that, if left unaddressed, perpetuates the harm regardless of surface-level interventions."
+    },
+    {
+        "term": "Inherency",
+        "definition": "The structural barrier — built into status-quo policy, law, or practice — that prevents the problem from being solved without the proposed change."
+    },
+    {
+        "term": "Solvency",
+        "definition": "The mechanism by which the proposed plan eliminates the identified harm — the bridge between your action and your impact."
+    },
+    {
+        "term": "Magnitude",
+        "definition": "The size and severity of a harm or benefit argument, measured in scope (how many affected), intensity (how severely), and reversibility."
+    },
+    {
+        "term": "Probability",
+        "definition": "The likelihood that a harm will occur or that a solvency mechanism will function as described, supported by empirical or historical evidence."
+    },
+    {
+        "term": "Timeframe",
+        "definition": "The urgency dimension of an impact argument — how quickly the harm materializes or how rapidly the benefit can be realized."
+    },
+    {
+        "term": "Reversibility",
+        "definition": "Whether a harm, once occurred, can be undone — irreversible harms (e.g., extinction, structural discrimination) are typically prioritized in impact calculus."
+    },
+    {
+        "term": "Causal Chain",
+        "definition": "The step-by-step logical sequence from a policy action to its downstream effects, each link requiring independent evidential support."
+    },
+    {
+        "term": "Counterfactual",
+        "definition": "An analysis of what would happen in the absence of the proposed plan — establishes the baseline against which the plan's benefits are measured."
+    },
+    {
+        "term": "Status Quo",
+        "definition": "The present state of the world — policies, practices, and conditions as they currently exist — used as the baseline for impact comparisons."
+    },
+    {
+        "term": "Uniqueness",
+        "definition": "The argument that the impact being described does not already exist in the status quo and is exclusively caused by the plan or the opposing position."
+    },
+    {
+        "term": "Link",
+        "definition": "The argumentative connection between a plan action and a downstream disadvantage or benefit — the first step in any impact chain."
+    },
+    {
+        "term": "Disadvantage",
+        "definition": "A negative consequence uniquely triggered by the opposing plan, structured as: Uniqueness → Link → Internal Link → Impact."
+    },
+    {
+        "term": "Advocacy Strategy",
+        "definition": "The planned approach for communicating a policy position to decision-makers, stakeholders, and the public to generate support and drive action."
+    },
+    {
+        "term": "Theory of Change",
+        "definition": "A comprehensive map of how and why a set of activities will produce the desired outcome — articulates assumptions at each stage of the causal chain."
+    },
+    {
+        "term": "Stakeholder Analysis",
+        "definition": "Identification and assessment of all parties affected by or capable of affecting a proposed system — essential for feasibility and political viability."
+    },
+    {
+        "term": "Problem Framing",
+        "definition": "The strategic act of defining the scope, cause, and population of a crisis in a way that positions your solution as necessary and sufficient."
+    },
+    {
+        "term": "Systemic Change",
+        "definition": "Intervention at the structural level — altering the rules, institutions, or norms that produce outcomes — rather than addressing symptoms alone."
+    },
+    {
+        "term": "Policy Lever",
+        "definition": "A specific mechanism through which a governing or institutional authority can effect change — e.g., legislation, regulation, funding allocation, or executive order."
+    },
+    {
+        "term": "Evidence Base",
+        "definition": "The corpus of empirical data, expert testimony, historical precedent, and peer-reviewed research that supports every major claim in an ACAD case."
+    },
+    {
+        "term": "Harms Framework",
+        "definition": "The structured presentation of all negative consequences of the status quo that the proposed plan is designed to resolve."
+    },
+    {
+        "term": "Plan Text",
+        "definition": "The precise, one-paragraph statement of what the advocating team proposes to do — must be specific, enforceable, and agent-clear."
+    },
+    {
+        "term": "Implementation Timeline",
+        "definition": "A phase-by-phase schedule for enacting the proposed system, demonstrating operational realism and managing resource deployment."
+    },
+    {
+        "term": "Monitoring Framework",
+        "definition": "The system of metrics, evaluation checkpoints, and feedback loops used to assess whether a policy is achieving its intended outcomes."
+    },
+    {
+        "term": "Net Benefit",
+        "definition": "The overall assessment that the advantages of a plan outweigh its disadvantages — the core calculus in impact-driven debate."
+    },
+    {
+        "term": "Permutation",
+        "definition": "A test of competition that argues the affirmative plan and the negative counterplan can be implemented together, negating the either/or choice."
+    },
+    {
+        "term": "Counterplan",
+        "definition": "A negative team's alternative proposal that competes with the affirmative plan by being mutually exclusive and offering superior net benefits."
+    },
+    {
+        "term": "Topicality",
+        "definition": "A procedural argument that the affirmative plan falls outside the intended scope of the resolution — a jurisdictional check on the debate."
+    },
+    {
+        "term": "Kritik",
+        "definition": "A philosophical or structural challenge to the assumptions, framework, or language of the opposing case — operates at the level of epistemology or ethics."
+    },
+    {
+        "term": "Strategic Island",
+        "definition": "An ACAD content design principle: each concept is self-contained in its own visual card module, allowing non-linear navigation and deep focus."
+    },
+    {
+        "term": "Luxury Academic",
+        "definition": "The ACAD design philosophy: premium typography, high-contrast aesthetics, and editorial restraint produce an environment of intellectual seriousness."
+    },
+    {
+        "term": "Continuous Reading",
+        "definition": "An app-like scrolling engine that pre-loads curriculum modules for a seamless, infinite-scroll flow between chapters."
+    },
+    {
+        "term": "Burden of Proof",
+        "definition": "The obligation on the advancing party to substantiate their claims with sufficient evidence — in debate, the affirmative typically carries the initial burden."
+    },
+    {
+        "term": "Fiat",
+        "definition": "The conventional assumption in policy debate that the judge can hypothetically enact the proposed plan, bypassing questions of political likelihood."
+    },
+    {
+        "term": "Impact Calculus",
+        "definition": "The process of weighing competing impacts against each other using shared criteria such as magnitude, probability, timeframe, and reversibility."
+    },
+    {
+        "term": "Cross-Examination",
+        "definition": "A structured questioning period designed to expose logical weaknesses, missing evidence, definitional ambiguity, or strategic inconsistency in an opponent's case."
+    },
+    {
+        "term": "Flow",
+        "definition": "A structured note-taking system used in competitive debate to track each argument's evolution across all speeches — the record of the round."
+    }
+]

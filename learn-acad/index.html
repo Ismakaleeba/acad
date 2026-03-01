@@ -21,11 +21,30 @@
       <div class="sidebar-header">
         <h1>Learn ACAD</h1>
         <p>Official Learning Platform</p>
+        <!-- Progress Counter -->
+        <div id="progress-counter" class="progress-counter">
+          <div class="progress-bar-track">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+          <span id="progress-label">0 / 0 chapters</span>
+        </div>
       </div>
       <nav id="nav-menu" class="nav-menu">
         <!-- Navigation items will be injected here -->
         <div class="nav-loading">Loading curriculum...</div>
       </nav>
+      <!-- Bookmarks Section -->
+      <div id="bookmarks-section" class="bookmarks-section" style="display:none;">
+        <div class="bookmarks-title">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          Bookmarks
+        </div>
+        <div id="bookmarks-list" class="bookmarks-list">
+          <div class="bookmarks-empty">No bookmarks yet</div>
+        </div>
+      </div>
     </aside>
 
     <main id="content-area" class="content-area">
@@ -36,22 +55,33 @@
           <div id="breadcrumb" class="breadcrumb">Overview</div>
         </div>
         <div class="header-right">
-          <div id="search-trigger" class="search-trigger" title="Search (Cmd+K)">
+          <!-- Font Size Controls -->
+          <div class="font-size-controls">
+            <button id="font-size-decrease" class="fs-btn" title="Decrease Font Size">A−</button>
+            <button id="font-size-increase" class="fs-btn" title="Increase Font Size">A+</button>
+          </div>
+          <!-- Focus Mode Toggle -->
+          <button id="focus-toggle" class="theme-toggle" title="Focus Mode (Ctrl+Shift+F)">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+          </button>
+          <div id="search-trigger" class="search-trigger" title="Search (Ctrl+K)">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
             <span>Search</span>
-            <kbd>⌘K</kbd>
+            <kbd>Ctrl+K</kbd>
           </div>
-          <button id="notes-toggle" class="theme-toggle" title="Open Notes (Cmd+N)">
+          <button id="notes-toggle" class="theme-toggle" title="Open Notes (Ctrl+N)">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 20h9"></path>
               <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
             </svg>
           </button>
-          <button id="glossary-toggle" class="theme-toggle" title="Open Glossary">
+          <button id="glossary-toggle" class="theme-toggle" title="Open Glossary (Ctrl+G)">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -123,6 +153,14 @@
       <h2>Strategic Glossary</h2>
       <button id="close-glossary" class="close-drawer">✕ Close</button>
     </div>
+    <!-- Glossary Search -->
+    <div class="glossary-search-wrapper">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input type="text" id="glossary-search" placeholder="Filter terms..." autocomplete="off">
+    </div>
     <div id="glossary-content" class="glossary-content">
       <!-- Terms and definitions will be injected here -->
     </div>
@@ -134,10 +172,12 @@
       <h2>Strategic Notes</h2>
       <button id="close-notes" class="close-drawer">✕ Close</button>
     </div>
+    <div id="notes-chapter-label" class="notes-chapter-label">General Notes</div>
     <div class="notes-content">
       <textarea id="notes-textarea" placeholder="Record your strategic insights here..."></textarea>
       <div class="notes-footer">
         <span id="notes-save-status">Saved locally</span>
+        <button id="export-notes" class="export-notes-btn" title="Export all notes as Markdown">Export ↓</button>
       </div>
     </div>
   </div>
