@@ -6379,6 +6379,336 @@ The ACAD Glossary is a definitive reference for all official terms, roles, and c
 
 Tip for Teams: Keep this glossary handy during preparation. Refer to it to ensure you are speaking, presenting, and designing solutions in true ACAD style.
 
+# PART XX – THE ACAD ACTION BOARD
+
+## 53. Standard Action Board Template
+
+*(Universal – used in all ACAD debates)*
+
+Your board must fit on **one visual canvas** (one slide / one poster / one digital board).
+
+The board is read **left → right → top → bottom**.
+
+---
+
+# 🧭 GLOBAL STRUCTURE
+
+```
+[ 1. Problem System Map ]  →  [ 2. Intervention Architecture ]
+
+[ 3. Delivery Pathway ]    →  [ 4. Resource & Constraint Model ]
+
+[ 5. Impact Logic Chain ]  →  [ 6. Measurement Framework ]
+
+[ 7. Scaling Strategy ]    →  [ 8. Risk & Failure Modes ]
+```
+
+Every team must keep this order.
+
+---
+
+# 🟦 SECTION 1 — Problem System Map
+*(What system are you actually fixing?)*
+
+### Show visually:
+
+**Actors**
+* Who is involved in the current system?
+* institutions, communities, markets, regulators, users
+
+**Flows**
+* information
+* money
+* services
+* decisions
+
+**Bottlenecks**
+* where the system slows down
+* where access is blocked
+* where value is lost
+
+**Failures**
+* what breaks repeatedly?
+
+**Feedback loops**
+* what reinforces the failure?
+
+---
+
+### On the board, you must show:
+* boxes = actors
+* arrows = flows
+* red marks = bottlenecks
+* loop arrows = feedback loops
+
+---
+
+👉 Purpose:
+Evaluators must understand the real system in 20 seconds.
+
+---
+
+# 🟦 SECTION 2 — Intervention Architecture
+*(What new system are you introducing?)*
+
+### You must show:
+
+**Components**
+* programs
+* tools
+* platforms
+* institutions
+* policies
+* mechanisms
+
+**Interactions**
+* how components talk to each other
+* what triggers what
+
+**Control & ownership**
+* who runs each part?
+
+---
+
+👉 Mandatory question your design must answer visually:
+**Which part of the broken system does each component fix?**
+
+---
+
+This is not a list.
+It is a connected architecture.
+
+---
+
+# 🟦 SECTION 3 — Delivery Pathway
+*(How does this actually run in real life?)*
+
+You must show a clear operational flow:
+
+**Step 1 → Step 2 → Step 3 → Step 4**
+
+For each step:
+* who does it?
+* where does it happen?
+* what is produced?
+
+---
+
+Also show:
+
+**Timeline**
+* pilot phase
+* scale phase
+* stabilization phase
+
+---
+
+👉 This is where ACAD separates ideas from operations.
+
+---
+
+# 🟦 SECTION 4 — Resource & Constraint Model
+*(What must exist for this system to work?)*
+
+You must show four columns:
+
+**Skills & human capacity**
+* trainers, engineers, coordinators, officers
+
+**Financial resources**
+* startup costs
+* operating costs
+
+**Infrastructure**
+* physical
+* digital
+
+**Regulatory / social constraints**
+* licenses
+* policy barriers
+* community resistance
+* trust issues
+
+---
+
+👉 You must also show:
+Which constraint is the hardest to overcome?
+
+---
+
+# 🟦 SECTION 5 — Impact Logic Chain
+*(How does your action become real impact?)*
+
+You must draw a chain:
+
+**Activities → Outputs → Outcomes → Impact**
+
+Example form (generic):
+Training → certified youth → employed youth → reduced unemployment
+
+---
+
+Rules:
+* each arrow must be justified
+* no magical jumps
+* no emotional claims
+
+---
+
+👉 Evaluators will test this chain heavily.
+
+---
+
+# 🟦 SECTION 6 — Measurement Framework
+*(How will you know it works?)*
+
+For each outcome:
+
+**Indicator**
+* what is measured?
+
+**Data source**
+* who collects it?
+* from where?
+
+**Frequency**
+* how often?
+
+**Verification**
+* how is data validated?
+
+---
+
+👉 If it cannot be measured, it cannot be claimed.
+
+---
+
+# 🟦 SECTION 7 — Scaling & Replication Strategy
+*(How does this move beyond one pilot?)*
+
+You must show three scale dimensions:
+
+**Geographic scale**
+* districts → provinces → national
+
+**Population scale**
+* users → institutions → sectors
+
+**Institutional scale**
+* partnerships
+* government integration
+* private sector replication
+
+---
+
+You must also show:
+
+**What changes when you scale?**
+* governance?
+* cost structure?
+* delivery model?
+
+---
+
+👉 ACAD forbids “just expand it” logic.
+
+---
+
+# 🟦 SECTION 8 — Risk & Failure Modes
+*(What can realistically break this system?)*
+
+You must list at least:
+* operational failure
+* political failure
+* funding failure
+* human capacity failure
+* adoption failure
+
+For each:
+**Failure mode → Trigger → Mitigation**
+
+---
+
+👉 Honest risk increases credibility.
+Hidden risk kills credibility.
+
+---
+---
+
+# 🧩 VISUAL DESIGN RULES (MANDATORY)
+
+To keep boards comparable across tournaments:
+
+### 1. One board only
+No extra slides.
+
+---
+
+### 2. No paragraphs
+Only:
+* diagrams
+* arrows
+* labels
+* short phrases
+
+---
+
+### 3. Each section must be boxed and titled
+Exactly with the official section names.
+
+---
+
+### 4. Color discipline
+Suggested:
+* system = grey/blue
+* intervention = green
+* delivery = orange
+* risk = red
+
+(Colors optional but logic separation is not.)
+
+---
+
+### 5. Every claim must be visually grounded
+If a speaker says something, evaluators must be able to point to it on the board.
+
+---
+---
+
+# 🧠 Why this template works for every solution
+
+This template is:
+* sector-agnostic (tourism, health, education, tech, climate…)
+* ideology-neutral
+* implementation-focused
+* evaluator-friendly
+* fully comparable
+
+It forces teams to show:
+✔ systems
+✔ actions
+✔ operations
+✔ impact
+✔ scale
+✔ realism
+
+---
+---
+
+# 🔒 Official ACAD rule
+
+A team that does not clearly populate **all 8 sections**
+is considered to have an **incomplete solution system**.
+
+---
+
+This is the heart of ACAD.
+
+Not speeches.
+Not slides.
+Not persuasion.
+
+👉 Systems, actions and measurable change.
 
 
 
