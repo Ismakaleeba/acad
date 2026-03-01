@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACAD Action Board Template</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
+            --gold: #d4af37;
+
+            /* ACAD Discipline Colors */
+            --color-system: #1f3a5f;
+            /* grey/blue */
+            --color-intervention: #1a4f36;
+            /* green */
+            --color-delivery: #6b3e14;
+            /* orange */
+            --color-risk: #5c1e1e;
+            /* red */
+
+            --header-font: 'Playfair Display', serif;
+            --body-font: 'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--body-font);
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .board-container {
+            width: 100%;
+            max-width: 1600px;
+            aspect-ratio: 16 / 9;
+            /* Standard slide format */
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .title-area h1 {
+            font-family: var(--header-font);
+            font-size: 2.5rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-area p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .team-info {
+            text-align: right;
+        }
+
+        .team-info .label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .team-info .value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 1px dashed var(--border-color);
+            min-width: 200px;
+            display: inline-block;
+            height: 1.5rem;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .section-card {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+        }
+
+        /* Colors based on rules */
+        .sec-system::before {
+            background-color: var(--color-system);
+        }
+
+        .sec-intervention::before {
+            background-color: var(--color-intervention);
+        }
+
+        .sec-delivery::before {
+            background-color: var(--color-delivery);
+        }
+
+        .sec-risk::before {
+            background-color: var(--color-risk);
+        }
+
+        .sec-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .sec-num {
+            font-family: var(--header-font);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            margin-right: 0.75rem;
+            line-height: 1;
+        }
+
+        .sec-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .sec-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-left: auto;
+        }
+
+        .sec-content {
+            flex-grow: 1;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .hint-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hint-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .hint-col h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hint-col ul {
+            list-style-type: none;
+            font-size: 0.8rem;
+            color: #6e7681;
+        }
+
+        .hint-col ul li {
+            margin-bottom: 0.25rem;
+            padding-left: 0.75rem;
+            position: relative;
+        }
+
+        .hint-col ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* Print styling */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .board-container {
+                border: none;
+                box-shadow: none;
+                max-width: none;
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+                background-color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            :root {
+                --text-main: #000;
+                --text-muted: #555;
+                --border-color: #ccc;
+                --card-bg: #fff;
+            }
+
+            .sec-content {
+                border-color: #eaeaea;
+            }
+        }
+    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="board-container">
+        <div class="board-header">
+            <div class="title-area">
+                <h1>ACAD Action Board</h1>
+                <p>Official Intervention Design Canvas</p>
+            </div>
+            <div class="team-info">
+                <span class="label">Team / Solution Name:</span>
+                <span class="value"></span>
+            </div>
+        </div>
+
+        <div class="board-grid">
+
+            <!-- 1. System Map -->
+            <div class="section-card sec-system">
+                <div class="sec-header">
+                    <div class="sec-num">1</div>
+                    <div class="sec-title">Problem System Map</div>
+                    <div class="sec-subtitle">What system are you actually fixing?</div>
+                </div>
+                <div class="sec-content">
+                    <div class="hint-grid">
+                        <div class="hint-col">
+                            <h4>Map Components</h4>
+                            <ul>
+                                <li>Actors & Institutions</li>
+                                <li>Flows (money, info, services)</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4>Failure Points</h4>
+                            <ul>
+                                <li>Bottlenecks (red marks)</li>
+                                <li>Feedback Loops (arrows)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Intervention -->
+            <div class="section-card sec-intervention">
+                <div class="sec-header">
+                    <div class="sec-num">2</div>
+                    <div class="sec-title">Intervention Architecture</div>
+                    <div class="sec-subtitle">What new system are you introducing?</div>
+                </div>
+                <div class="sec-content">
+                    <div class="hint-grid">
+                        <div class="hint-col">
+                            <h4>Components</h4>
+                            <ul>
+                                <li>Programs / Policies</li>
+                                <li>Tools / Mechanisms</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4>Structure</h4>
+                            <ul>
+                                <li>Component Interactions</li>
+                                <li>Control & Ownership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Delivery -->
+            <div class="section-card sec-delivery">
+                <div class="sec-header">
+                    <div class="sec-num">3</div>
+                    <div class="sec-title">Delivery Pathway</div>
+                    <div class="sec-subtitle">How does this run in real life?</div>
+                </div>
+                <div class="sec-content" style="flex-direction: column; justify-content: space-around;">
+                    <div
+                        style="font-size: 0.85rem; font-weight: 500; color: var(--text-main); letter-spacing: 0.1em; text-transform: uppercase;">
+                        Step 1 → Step 2 → Step 3 → Step 4</div>
+                    <div class="hint-grid" style="margin-top: 0.5rem; height: auto;">
+                        <div class="hint-col">
+                            <h4>Operational Flow</h4>
+                            <ul>
+                                <li>Who acts? Where? What is made?</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4>Timeline</h4>
+                            <ul>
+                                <li>Pilot → Scale → Stabilize</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Resources -->
+            <div class="section-card sec-delivery">
+                <div class="sec-header">
+                    <div class="sec-num">4</div>
+                    <div class="sec-title">Resource & Constraint Model</div>
+                    <div class="sec-subtitle">What must exist to work?</div>
+                </div>
+                <div class="sec-content">
+                    <div class="hint-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.5rem;">
+                        <div class="hint-col">
+                            <h4 style="font-size: 0.7rem;">Capacity</h4>
+                            <ul style="font-size: 0.7rem;">
+                                <li>Skills/Staff</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4 style="font-size: 0.7rem;">Financial</h4>
+                            <ul style="font-size: 0.7rem;">
+                                <li>Capex/Opex</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4 style="font-size: 0.7rem;">Infra</h4>
+                            <ul style="font-size: 0.7rem;">
+                                <li>Physical/Digital</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4 style="font-size: 0.7rem;">Constraints</h4>
+                            <ul style="font-size: 0.7rem;">
+                                <li>Legal/Social</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Impact -->
+            <div class="section-card sec-system">
+                <div class="sec-header">
+                    <div class="sec-num">5</div>
+                    <div class="sec-title">Impact Logic Chain</div>
+                    <div class="sec-subtitle">How does action become impact?</div>
+                </div>
+                <div class="sec-content" style="flex-direction: column;">
+                    <div
+                        style="font-size: 0.85rem; font-weight: 500; color: var(--text-main); letter-spacing: 0.1em; text-transform: uppercase;">
+                        Activities → Outputs → Outcomes → Impact</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.75rem;">(Each arrow must be justified. No magical jumps.)
+                    </p>
+                </div>
+            </div>
+
+            <!-- 6. Measurement -->
+            <div class="section-card sec-system">
+                <div class="sec-header">
+                    <div class="sec-num">6</div>
+                    <div class="sec-title">Measurement Framework</div>
+                    <div class="sec-subtitle">How will you know it works?</div>
+                </div>
+                <div class="sec-content">
+                    <div class="hint-grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="hint-col">
+                            <h4>Metrics</h4>
+                            <ul>
+                                <li>Indicators</li>
+                                <li>Data Sources (Who collects?)</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4>Process</h4>
+                            <ul>
+                                <li>Frequency</li>
+                                <li>Verification method</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Scoring -->
+            <div class="section-card sec-intervention">
+                <div class="sec-header">
+                    <div class="sec-num">7</div>
+                    <div class="sec-title">Scaling Strategy</div>
+                    <div class="sec-subtitle">How does this move beyond pilot?</div>
+                </div>
+                <div class="sec-content">
+                    <div class="hint-grid">
+                        <div class="hint-col">
+                            <h4>Dimensions</h4>
+                            <ul style="font-size: 0.75rem;">
+                                <li>Geo (Local→Natl)</li>
+                                <li>Pop (Users→Sectors)</li>
+                                <li>Inst (Govt/Private)</li>
+                            </ul>
+                        </div>
+                        <div class="hint-col">
+                            <h4>Evolution</h4>
+                            <ul style="font-size: 0.75rem;">
+                                <li>How do costs/governance change at scale?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Risk -->
+            <div class="section-card sec-risk">
+                <div class="sec-header">
+                    <div class="sec-num">8</div>
+                    <div class="sec-title">Risk & Failure Modes</div>
+                    <div class="sec-subtitle">What can break this system?</div>
+                </div>
+                <div class="sec-content" style="flex-direction: column; align-items: flex-start;">
+                    <div
+                        style="font-size: 0.85rem; font-weight: 500; color: var(--text-main); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; align-self: center;">
+                        Failure Mode → Trigger → Mitigation</div>
+                    <ul
+                        style="font-size: 0.75rem; color: #6e7681; list-style-type: none; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <li>• Operational Failure</li>
+                        <li>• Political Failure</li>
+                        <li>• Funding Failure</li>
+                        <li>• Adoption Failure</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
